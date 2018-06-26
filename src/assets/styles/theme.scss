@@ -1,0 +1,19 @@
+
+// Update Bulma's global variables
+$primary: #30343F;
+$primary-invert: #FAFAFF;
+$link: $primary;
+$text: #FAFAFF;
+
+$body-background-color: #000;
+// Update some of Bulma's component variables
+$input-border-color: transparent;
+$input-shadow: none;
+
+// Import the rest of Bulma
+@import "bulma";
+
+// Overrides
+.button{
+  transition: 0.3s
+}
