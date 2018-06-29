@@ -9,7 +9,7 @@
   </p>
     <p>Like this project? Check out <a target="_blank" href="https://bloclock.com">bloclock.com</a></p>
 
-    <router-link to="/">Back</router-link>
+    <router-link to="/" class="button is-primary">Back</router-link>
   </div>
 </template>
 
@@ -22,5 +22,12 @@ export default {
 <style scoped>
 p{
   margin-bottom: 1.2em;
+}
+a{
+  color:inherit;
+  text-decoration: underline;
+}
+.button{
+  text-decoration: none;
 }
 </style>
