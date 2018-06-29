@@ -13,14 +13,13 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'Introduction',
       component: Introduction,
       children: [
         {
           path: '/',
           component: IntroductionText,
+          name: 'Introduction',
           meta: {
-            title: 'Home',
             gradientState: 'default-state'
           }
         },
@@ -28,13 +27,15 @@ const router = new Router({
           path: 'form',
           component: IntroductionForm,
           meta: {
-            title: 'How many.??',
             gradientState: 'step-2'
           }
         },
         {
           path: 'about',
-          component: IntroductionAbout
+          component: IntroductionAbout,
+          meta: {
+            gradientState: 'default-state'
+          }
         }
       ]
     },
