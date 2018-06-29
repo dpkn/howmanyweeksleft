@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="form">
     <div class="field">
       <p>
         <b>About your birth</b>
@@ -9,11 +9,11 @@
       </p>
     </div>
     <GenderSelector></GenderSelector>
-    <CountrySelector></CountrySelector>
+    <DemographicSelector></DemographicSelector>
     <DateSelector></DateSelector>
     <div class="field is-grouped">
       <div class="control">
-        <router-link to="/form" class="button is-primary" disabled>Calculate my death</router-link>
+        <router-link to="/weeks" class="button is-primary"  :disabled="!userDataIsComplete">Calculate my death</router-link>
       </div>
       <div class="control">
         <router-link to="/" class="button is-text">Back</router-link>
@@ -24,29 +24,33 @@
 
 <script>
 import DateSelector from '../DateSelector'
-import CountrySelector from '../CountrySelector'
+import DemographicSelector from '../DemographicSelector'
 import GenderSelector from '../GenderSelector'
 
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'IntroductionForm',
   components: {
     DateSelector,
-    CountrySelector,
+    DemographicSelector,
     GenderSelector
   },
   methods: {
     ...mapActions(['loadLifeData'])
   },
+  computed: {
+    ...mapGetters(['userDataIsComplete'])
+  },
   mounted: function () {
-    var a = this.loadLifeData('other')
-    var b = this.loadLifeData('men')
-    var c = this.loadLifeData('women')
-    console.log(a, b, c)
-    if (a === b & a === c) {
-      console.log('e')
-    }
+    this.loadLifeData('other')
+    this.loadLifeData('male')
+    this.loadLifeData('female')
   }
 }
 </script>
+<style>
+.button[disabled]{
+  pointer-events: none;
+}
+</style>
