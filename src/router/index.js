@@ -5,10 +5,11 @@ import Introduction from '@/components/Introduction/Index.vue'
 import IntroductionText from '@/components/Introduction/IntroductionText'
 import IntroductionForm from '@/components/Introduction/IntroductionForm'
 import IntroductionAbout from '@/components/Introduction/IntroductionAbout'
+import Weeks from '@/components/Weeks/Index.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -17,17 +18,36 @@ export default new Router({
       children: [
         {
           path: '/',
-          component: IntroductionText
+          component: IntroductionText,
+          meta: {
+            title: 'Home',
+            gradientState: 'default-state'
+          }
         },
         {
           path: 'form',
-          component: IntroductionForm
+          component: IntroductionForm,
+          meta: {
+            title: 'How many.??',
+            gradientState: 'step-2'
+          }
         },
         {
           path: 'about',
           component: IntroductionAbout
         }
       ]
+    },
+    {
+      path: '/weeks',
+      name: 'Weeks',
+      component: Weeks,
+      meta: {
+        title: 'Weeks eft.',
+        gradientState: 'weekview-state'
+      }
     }
   ]
 })
+
+export default router
