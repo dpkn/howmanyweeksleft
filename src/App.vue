@@ -36,26 +36,24 @@ export default {
     window.backgroundCanvas = new Granim({
       element: '#background-canvas',
       name: 'background-canvas',
-      direction: 'diagonal',
+      direction: 'radial',
       opacity: [1, 1],
       isPausedWhenNotInView: true,
-      stateTransitionSpeed: 1000,
+      stateTransitionSpeed: 500,
       states: {
         'default-state': {
           gradients: [
-            ['#000000', '#383d4a'],
-            ['#383d4a', '#000000']
+            ['#000000', '#313131']
           ]
         },
         'step-2': {
           gradients: [
-            ['#000000', '#313131'],
-            ['#313131', '#000000']
-          ]
+            ['#000000', '#191919']
+          ],
+          loop: false
         },
         'weekview-state': {
-          gradients: [ ['#FFFFFF', '#F2F2F2'], ['#F2F2F2', '#FFFFFF'] ],
-          loop: false
+          gradients: [ ['#FFFFFF', '#F2F2F2'], ['#F2F2F2', '#FFFFFF'] ]
         }
       }
     })
