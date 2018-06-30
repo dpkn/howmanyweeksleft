@@ -5,7 +5,7 @@
         <div class="dot" :class="{passed: weekNo < weeksLived, active: weekNo == weeksLived}" v-for="weekNo in weekLifeExpectancy" :key="weekNo"></div>
       </section>
       <h2 class="has-text-weight-bold">You've used up {{weeksLived}} weeks of your life. That's {{weeksLivedPercentage}}%.<br>
-      You're gonna die on the {{deathDate}}. <a href="#">Add to calendar</a></h2>
+      You're gonna die on the {{deathDate}}.<!-- <a href="#">Add to calendar</a></h2>-->
 
     </div>
 </template>
