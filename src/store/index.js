@@ -31,7 +31,7 @@ export const store = new Vuex.Store({
       // TODO:Make this
       if (state.UserData.birth.day && state.UserData.birth.month && state.UserData.birth.year) {
         var birthDate = Moment(state.UserData.birth.day + '-' + state.UserData.birth.month + '-' + state.UserData.birth.year, 'DD-MM-YYYY')
-        var deathDate = birthDate.add(getters.weeksLeft, 'weeks')
+        var deathDate = birthDate.add(getters.weekLifeExpectancy, 'weeks')
         return deathDate.format('Do [of] MMMM YYYY')
       } else {
         return Moment().format('Do [of] MMMM YYYY')
