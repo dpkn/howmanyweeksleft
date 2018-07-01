@@ -27,8 +27,6 @@ export default {
   },
   watch: {
     '$route' (to, from) {
-      console.log('wakawake time for africa??')
-      console.log(to.meta.gradientState)
       if (to.meta.gradientState) { window.backgroundCanvas.changeState(to.meta.gradientState) }
     }
   },
@@ -70,7 +68,7 @@ html,body,#app,#background-canvas{
   top:0;
   left:0;
 }
-@media only screen and (min-width: 1022px){
+@media only screen and (min-width: 769px){
   .horizontalCenter{
     position: absolute;
     top: 50%;

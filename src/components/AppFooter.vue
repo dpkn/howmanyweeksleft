@@ -18,13 +18,13 @@ footer{
   position: absolute;
   bottom: 5px;
   display: block;
-  color:#000;
+  color:#fff;
 }
 a,a:hover,a:visited{
   color:inherit;
   text-decoration: underline;
 }
-@media only screen and (max-width: 1021px){
+@media only screen and (max-width: 769px){
   footer {
     position: relative;
     padding: 2em;
