@@ -5,7 +5,7 @@
         <b>About your birth</b>
       </p>
       <p>
-        Birthdate, gender and country of residence are the most important factors when it comes to your life expectancy.
+        Birthdate, gender and country of residence are among the most important factors when it comes to your life expectancy.
       </p>
     </div>
     <GenderSelector></GenderSelector>
