@@ -1,22 +1,40 @@
 <template>
     <div id="weekView">
-      <h1 class="has-text-weight-bold"><span>{{weeksLeft}}</span> weeks left.</h1>
+      <h1 class="has-text-weight-bold"><em>{{Math.abs(weeksLeft)}}</em> weeks
+        <span v-if="weeksLeft <= 0">
+          dead
+        </span>
+        <span v-else>
+          left
+        </span>
+      </h1>
       <section id="weekGrid">
         <div class="dot" :class="{passed: weekNo < weeksLived, active: weekNo == weeksLived}" v-for="weekNo in weekLifeExpectancy" :key="weekNo"></div>
       </section>
-      <h2 class="has-text-weight-bold">You've used up {{weeksLived}} weeks of your life. That's {{weeksLivedPercentage}}%.<br>
-      You're gonna die on the {{deathDate}}.<!-- <a href="#">Add to calendar</a></h2>-->
+      <h2 class="has-text-weight-bold">
+        <span v-if="weeksLeft <= 0">
+          Statistically, you should have died on the {{deathDate}}<br>
+          You're still alive. Congratulations!
+        </span>
+        <span v-else>
+          You've used up {{weeksLived}} weeks of your life. That's {{weeksLivedPercentage}}%.<br>
+          You're gonna die on the {{deathDate}}.<!-- <a href="#">Add to calendar</a>-->
+        </span>
+      </h2>
 
     </div>
 </template>
 
 <script>
 import {mapState, mapGetters} from 'vuex'
+import router from '../../router'
 
 export default {
   name: 'Weeks',
-  data () {
-    return {}
+  mounted: function () {
+    if (!this.birth.day) {
+      router.push('/')
+    }
   },
   computed: {
     ...mapState({
@@ -36,7 +54,7 @@ a{
   text-decoration: underline;
 }
 #weekView{
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
   color:$dot-color;
 }
@@ -45,8 +63,9 @@ h1{
   font-size:2.7rem;
   color:$dot-passed-color;
 }
-h1 span{
+h1 em{
   color:$dot-color;
+  font-style: normal;
 }
 h2{
   clear: left;
@@ -60,13 +79,19 @@ h2{
 .dot{
   width: 7px;
   height: 7px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 3.5px;
+  -moz-border-radius: 3.5px;
+  border-radius: 3.5px;
   display: inline-block;
   float: left;
-  margin: 2.3px;
+  margin: 2.1px;
   background:$dot-color;
+}
+@media only screen and (max-width: 1023px){
+  #weekView {
+      width: auto;
+      padding: 0 2em;
+  }
 }
 @media only screen and (max-width: 700px){
   h1,h2{
@@ -85,10 +110,8 @@ h2{
     width: 5px;
     height: 5px;
     border-radius: 2.5px;
-  }
-  #weekGrid{
-    padding: 2em;
-    padding-top: 0;
+    -webkit-border-radius: 2.5px;
+    -moz-border-radius: 2.5px;
   }
 }
 .passed{
