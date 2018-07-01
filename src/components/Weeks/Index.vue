@@ -35,6 +35,7 @@ export default {
     if (!this.birth.day) {
       router.push('/')
     }
+    document.title = this.weeksLeft + ' weeks left.'
   },
   computed: {
     ...mapState({

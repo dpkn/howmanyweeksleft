@@ -44,7 +44,6 @@ const router = new Router({
       name: 'Weeks',
       component: Weeks,
       meta: {
-        title: 'Weeks eft.',
         gradientState: 'weekview-state'
       }
     }
