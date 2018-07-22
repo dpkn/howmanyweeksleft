@@ -5,7 +5,7 @@
     </p>
   <p>
     This website shows your life expectancy at birth based on data by
-    <a target="_blank" href="https://data.worldbank.org/indicator/SP.DYN.LE00.IN">The World Bank Group</a>. Make sure to take the result with a grain of salt, since,  in most cases, your current life expectancy is higher than it was at your birth.
+    <a target="_blank" href="https://data.worldbank.org/indicator/SP.DYN.LE00.IN">The World Bank Group</a>. Make sure to take the result with a grain of salt, since in most cases, your current life expectancy is higher than it was at your birth.
   </p>
   <p>
     Your personal details are processed locally and not stored on a server.
