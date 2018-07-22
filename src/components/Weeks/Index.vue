@@ -1,5 +1,7 @@
 <template>
-    <div id="weekView">
+  <div id="weekPage">
+    <WeeksHeader></WeeksHeader>
+    <div id="weekView" class="is-horizontally-centered">
       <h1 class="has-text-weight-bold"><em>{{Math.abs(weeksLeft)}}</em> weeks
         <span v-if="weeksLeft <= 0">
           dead
@@ -23,14 +25,20 @@
       </h2>
 
     </div>
+</div>
 </template>
 
 <script>
 import {mapState, mapGetters} from 'vuex'
 import router from '../../router'
 
+import WeeksHeader from './WeeksHeader.vue'
+
 export default {
   name: 'Weeks',
+  components: {
+    WeeksHeader
+  },
   mounted: function () {
     if (!this.birth.day) {
       router.push('/')
@@ -57,7 +65,6 @@ a{
 #weekView{
   max-width: 1000px;
   margin: 0 auto;
-  color:$dot-color;
 }
 h1{
   line-height: 1em;
@@ -72,6 +79,9 @@ h2{
   clear: left;
   line-height: 1.1em;
   font-size: 1rem;
+}
+#weekPage{
+  color:$dot-color;
 }
 #weekGrid{
   position: relative;
@@ -90,7 +100,6 @@ h2{
 }
 @media only screen and (max-width: 1023px){
   #weekView {
-      width: auto;
       padding: 0 2em;
   }
 }
@@ -107,12 +116,12 @@ h2{
     padding-top: 20px;
   }
   .dot{
-    margin: 1px;
-    width: 5px;
-    height: 5px;
-    border-radius: 2.5px;
-    -webkit-border-radius: 2.5px;
-    -moz-border-radius: 2.5px;
+    margin: 2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
   }
 }
 .passed{

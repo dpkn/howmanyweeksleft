@@ -1,11 +1,9 @@
 <template>
   <div id="app">
 
-    <div class="horizontalCenter">
-      <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
-        <router-view/>
-      </transition>
-    </div>
+    <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
+      <router-view/>
+    </transition>
 
     <AppFooter></AppFooter>
 
@@ -26,11 +24,12 @@ export default {
     AppFooter
   },
   watch: {
-    '$route' (to, from) {
+    '$route' (to, from) { // When route changes, apply the corresponding gradient to the background canvas
       if (to.meta.gradientState) { window.backgroundCanvas.changeState(to.meta.gradientState) }
     }
   },
   mounted: function () {
+    // Setup Granim, the library that handles the gradient background canvas
     window.backgroundCanvas = new Granim({
       element: '#background-canvas',
       name: 'background-canvas',
@@ -51,7 +50,7 @@ export default {
           loop: false
         },
         'weekview-state': {
-          gradients: [ ['#FFFFFF', '#F2F2F2'], ['#F2F2F2', '#FFFFFF'] ]
+          gradients: [ ['#FFFFFF', '#FFFFFF'] ]
         }
       }
     })
@@ -69,7 +68,7 @@ html,body,#app,#background-canvas{
   left:0;
 }
 @media only screen and (min-width: 769px){
-  .horizontalCenter{
+  .is-horizontally-centered{
     position: absolute;
     top: 50%;
     left:50%;

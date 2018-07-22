@@ -1,5 +1,5 @@
 <template>
-    <div id="introduction" class="columns is-centered">
+    <div id="introduction" class="columns is-centered is-horizontally-centered">
       <div class="column">
         <img class="logo logoer" src="../../assets/logo.png"/>
       </div>
