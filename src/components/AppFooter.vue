@@ -1,6 +1,6 @@
 <template>
   <footer id="footer" class="is-size-7">
-    <p><a target="_blank" href="https://daankorssen.nl">Made by Daniël</a> | <router-link to="about">About this project</router-link></p>
+    <p><a target="_blank" href="https://danielkorssen.com">Made by Daniël</a> | <router-link to="about">About this project</router-link></p>
   </footer>
 </template>
 
